@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="../../Recursos/fpdf181/fpdf.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<body background="https://vignette.wikia.nocookie.net/crossoverrp/images/8/84/Seventh_Moon_1st_Floor.png/revision/latest?cb=20151007012148">
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:3;width:20%;min-width:100px; background-color: #F93E58" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()"
+     class="w3-bar-item w3-button">Cerrar</a><hr>
+     <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Platos a la carta</a><hr>
+     <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Bebidas</a><hr>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1228px;margin:auto" style="padding-left: 40px">
+      <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()" style="background-color: #F93E58"><img src="">☰</div>
+      <div class="w3-center w3-padding-8 w3-right"><button><img src="../../imagenes/comida/logo-losgabrieles.jpg" width="80" height="60" ></button></div>
+    <div class="w3-right w3-padding-16"></div>
+    <div class="w3-center w3-padding-16">Hotel los Gabrieles</div>
+  </div>
+</div>
+  
+<form>
+<div class="w3-main w3-content w3-padding" style="max-width:1250px;margin-top:170px">
+
+  <!-- Pagina de comida -->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/desayuno.png" alt="Sandwich" style="width:100%">
+        <button data-toggle="collapse" data-target="#demo">Descripciòn</button>
+        <div id="demo" class="collapse">
+            <h3 style="color: #ffffff">Desayuno americano</h3>
+            <p style="color: #ffffff">Desayuno americano: Incluye café,
+             jugo,salchichas, huevos, sandwinch y fruta, mermelada o mantequilla al gusto de la persona</p>  
+        </div>
+      
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/ensaladasCesar.png" alt="Steak" style="width:100%">
+        <button data-toggle="collapse" data-target="#demo2">descripciòn</button>
+        <div id="demo2" class="collapse">
+            <h3 style="color: #ffffff">Ensalada cesar y pollo</h3>
+            <p style="color: #ffffff">Picar en trozos la lechuga,freír los filetes y partirlos en tiras
+            , mezclar y batir la mayonesa, mostaza, y 1/2 ajo.
+            Servir en un plato la lechuga y el pollo, se añade queso por encima.Se
+            puede añadir huevo cocido o pan en cuadros</p>
+        </div>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/PlanchaPollo.png" alt="Cherries" style="width:100%" height="190">
+      <h3 style="color: #ffffff">Pollo a la placha</h3>
+      <p style="color: #ffffff">La pechuga se pone a la plancha o sarten a fuego medio, se deja aproximadamente unos 10 minutos, luego se 
+          pasa por la parrilla con aceite de oliva. Se sirve por papas a la francesa. </p>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/polloChampiñones.png" alt="Pasta and Wine" style="width:100%" height="190">
+      <h3 style="color: #ffffff">Pollo en champiñones</h3>
+      <p style="color: #ffffff">Sazonar las pechugas con aceite de oliva, pimienta y sal, agrega la crema de leche y el perejil, revuelve, retira
+         del fuego. Saltea las pechugas en un poco de aceite de oliva hasta dorar. Servir bañadas con la salsa y acompaña con
+         puré de papa criolla.</p>
+    </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+      <div class="w3-quarter"><br>
+          <img src="../../imagenes/comida/costillas.png" alt="Popsicle" style="width:100%"><br>
+        <h3 style="color: #ffffff">Costillas bbq</h3>
+      <p style="color: #ffffff">Cocine por 30 minutos las costillas de cerdo con el agua. Saltea la cebolla picada, ajo y agrega vinagre,
+          salsa inglesa, salsa de tomate y jugo de limón. Precalienta el horno a 180° C y coloca las costillas de
+          cerdo previamente bañadas con la salsa.</p>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/churrasco.png" alt="Salmon" style="width:100%">
+      <h3 style="color: #ffffff">Churrasco</h3>
+      <p style="color: #ffffff">En un recipiente hondo, mezcla bien el ajo molido, la pimienta, la sal, al aceite de oliva, el vinagre y el orégano.
+         Coloca los churrascos en un molde y procede a sazonarlos con el adobo que acabas de preparar. 
+         Asegúrate de que la carne quede completamente cubierta.</p>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/babyBeff.png" alt="Sandwich" style="width:100%">
+      <h3 style="color: #ffffff">Baby beef</h3>
+      <p style="color: #ffffff"> Lomo viche en rodajas, con pimienta, salsa negra y tomillo, se pone la carne sobre la plancha caliente y asarla.<br>
+          La carne asada se acompaña con papa salada con un poquito de mayonesa (para entera cocinada), rodajas de tomate o
+          ensalada de aguacate y lechuga batavia</p>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/Mojarra-Frita.png" alt="Croissant" style="width:100%">
+      <h3 style="color: #ffffff">Mojarra frita</h3>
+      <p style="color: #ffffff">Lave bien los pescados y séquelos. Báñelos con el jugo de limón y rocíe con sal y pimienta.
+          Deje reposar mínimo 15 minutos, En una sartén grande, caliente abundante aceite y fría en él las mojarras hasta
+          que hayan dorado. Sirva acompañadas de patacones de plátano verde, arroz blanco y ensalada mixta.</p>
+    </div>
+  
+
+  <!-- Pagination -->
+  <center>
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+ </center>
+
+
+  <!-- Pagina bebidas -->
+  <div class="w3-container w3-padding-32 w3-center">  
+  <div class="w3-row-padding w3-padding-16 w3-center" id="about">
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/h11.png" alt="Sandwich" style="width:50%" height="215">
+      <h3 style="color: #ffffff">Jugos hit</h3>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/sprite.png" alt="Steak" style="width:100%"><br><br>
+      <h3 style="color: #ffffff">Gaseosa sprite</h3>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/agua.png" alt="Cherries" style="width:100%">
+      <h3 style="color: #ffffff">Botella con agua</h3>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/jugo_fruta.png" alt="Pasta and Wine" style="width:100%">
+        <button data-toggle="collage" data-target="#demo">Descripciòn</button>
+        <div>
+            <h3 style="color: #ffffff">Jugos naturales</h3>
+        </div>      
+    </div>
+  </div>
+   <!--Segunda fila-->
+   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/cerveza.png" alt="Sandwich" style="width:100%" height="215">
+      <h3 style="color: #ffffff">Cerveza</h3>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/sprite.png" alt="Steak" style="width:100%" height="180"><br><br>
+      <h3 style="color: #ffffff">Gaseosa sprite</h3>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/agua.png" alt="Cherries" style="width:100%">
+      <h3 style="color: #ffffff">Botella con agua</h3>
+    </div>
+    <div class="w3-quarter">
+        <img src="../../imagenes/comida/whiskey.png" alt="Pasta and Wine" style="width:100%" height="210" >
+      <h3 style="color: #ffffff">whiskey</h3>
+    </div>
+  </div>
+  </div>
+</form>
+  <hr>
+  </div> 
+<script>
+// Abrir y cerrar el menu
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+</body>
+</html>

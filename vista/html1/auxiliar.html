@@ -1,0 +1,135 @@
+<html lang="en" class=""><head><script src="//static.codepen.io/assets/editor/live/console_runner-ce3034e6bde3912cc25f83cccb7caa2b0f976196f2f2d52303a462c826d54a73.js"></script><script src="//static.codepen.io/assets/editor/live/css_live_reload_init-e9c0cc5bb634d3d14b840de051920ac153d7d3d36fb050abad285779d7e5e8bd.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico"><link rel="mask-icon" type="" href="//static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111"><link rel="canonical" href="https://codepen.io/Mamboleoo/pen/XgBvrJ">
+
+
+<style class="cp-pen-styles">body {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/unsplahBg2.jpg) no-repeat center/cover;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 20px;
+}
+li:nth-child(1) button {
+  background: #F3FFBD;
+}
+li:nth-child(2) button {
+  background: #247BA0;
+}
+li:nth-child(3) button {
+  background: #FF1654;
+}
+
+button {
+  position: relative;
+  background: rebeccapurple;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid white;
+  color: white;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 50px;
+  cursor: pointer;
+  padding: 0;
+}
+</style></head><body>
+<ul>
+  <li>
+    <button style="transform: matrix(1, 0, 0, 1, 0, 0); z-index: 1;">🦊</button>
+  </li>
+  <li>
+    <button style="transform: matrix(1, 0, 0, 1, 0, 0); z-index: 1;">🐶</button>
+  </li>
+  <li>
+    <button style="transform: matrix(1, 0, 0, 1, 0, 0);">🦄</button>
+  </li>
+</ul>
+<script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.0/TweenMax.min.js"></script>
+<script>var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var HoverButton = function () {
+  function HoverButton(el) {_classCallCheck(this, HoverButton);
+    this.el = el;
+    this.hover = false;
+    this.calculatePosition();
+    this.attachEventsListener();
+  }_createClass(HoverButton, [{ key: 'attachEventsListener', value: function attachEventsListener()
+
+    {var _this = this;
+      window.addEventListener('mousemove', function (e) {return _this.onMouseMove(e);});
+      window.addEventListener('resize', function (e) {return _this.calculatePosition(e);});
+    } }, { key: 'calculatePosition', value: function calculatePosition()
+
+    {
+      TweenMax.set(this.el, {
+        x: 0,
+        y: 0,
+        scale: 1 });
+
+      var box = this.el.getBoundingClientRect();
+      this.x = box.left + box.width * 0.5;
+      this.y = box.top + box.height * 0.5;
+      this.width = box.width;
+      this.height = box.height;
+    } }, { key: 'onMouseMove', value: function onMouseMove(
+
+    e) {
+      var hover = false;
+      var hoverArea = this.hover ? 0.7 : 0.5;
+      var x = e.clientX - this.x;
+      var y = e.clientY - this.y;
+      var distance = Math.sqrt(x * x + y * y);
+      if (distance < this.width * hoverArea) {
+        hover = true;
+        if (!this.hover) {
+          this.hover = true;
+        }
+        this.onHover(e.clientX, e.clientY);
+      }
+
+      if (!hover && this.hover) {
+        this.onLeave();
+        this.hover = false;
+      }
+    } }, { key: 'onHover', value: function onHover(
+
+    x, y) {
+      TweenMax.to(this.el, 0.4, {
+        x: (x - this.x) * 0.4,
+        y: (y - this.y) * 0.4,
+        scale: 1.15,
+        ease: Power2.easeOut });
+
+      this.el.style.zIndex = 10;
+    } }, { key: 'onLeave', value: function onLeave()
+    {
+      TweenMax.to(this.el, 0.7, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        ease: Elastic.easeOut.config(1.2, 0.4) });
+
+      this.el.style.zIndex = 1;
+    } }]);return HoverButton;}();
+
+
+var btn1 = document.querySelector('li:nth-child(1) button');
+new HoverButton(btn1);
+
+var btn2 = document.querySelector('li:nth-child(2) button');
+new HoverButton(btn2);
+
+var btn3 = document.querySelector('li:nth-child(3) button');
+new HoverButton(btn3);
+//# sourceURL=pen.js
+</script>
+<div id="SL_balloon_obj" alt="0" style="display: block;"><div id="SL_button" class="SL_ImTranslatorLogo" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/imtranslator-s.png&quot;); display: none;"></div><div id="SL_shadow_translation_result2" style="display: none;"></div><div id="SL_shadow_translator" style="display: none;"><div id="SL_planshet"><div id="SL_arrow_up" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/up.png&quot;);"></div><div id="SL_Bproviders"><div class="SL_BL_LABLE_ON" title="Google" id="SL_P0">G</div><div class="SL_BL_LABLE_ON" title="Microsoft" id="SL_P1">M</div><div class="SL_BL_LABLE_ON" title="Translator" id="SL_P2">T</div></div><div id="SL_alert_bbl" style="display: none;"><div id="SLHKclose" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/delete.png&quot;);"></div><div id="SL_alert_cont"></div></div><div id="SL_TB"><table id="SL_tables" cellspacing="1"><tr><td class="SL_td" width="10%" align="right"><input id="SL_locer" type="checkbox" title="Fijar idioma"></td><td class="SL_td" width="20%" align="left"><select id="SL_lng_from" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/select.png&quot;) 100% 0px no-repeat rgb(255, 255, 255);"><option value="auto">Detectar idioma</option><option value="af">Afrikáans</option><option value="sq">Albanés</option><option value="de">Alemán</option><option value="am">Amhárico</option><option value="ar">Árabe</option><option value="hy">Armenio</option><option value="az">Azerí</option><option value="bn">Bengalí</option><option value="be">Bielorruso</option><option value="my">Birmano</option><option value="bs">Bosnio</option><option value="bg">Búlgaro</option><option value="km">Camboyano</option><option value="kn">Canarés</option><option value="ca">Catalán</option><option value="ceb">Cebuano</option><option value="cs">Checo</option><option value="ny">Chichewa</option><option value="zh-CN">Chino simp</option><option value="zh-TW">Chino trad</option><option value="si">Cincalés</option><option value="ko">Coreano</option><option value="co">Corso</option><option value="ht">Criollo haitiano</option><option value="hr">Croata</option><option value="da">Danés</option><option value="sk">Eslovaco</option><option value="sl">Esloveno</option><option value="es">Español</option><option value="eo">Esperanto</option><option value="et">Estonio</option><option value="eu">Euskera</option><option value="fi">Finlandés</option><option value="fr">Francés</option><option value="fy">Frisio</option><option value="gd">Gaélico escocés</option><option value="cy">Galés</option><option value="gl">Gallego</option><option value="ka">Georgiano</option><option value="el">Griego</option><option value="gu">Gujarati</option><option value="ha">Hausa</option><option value="haw">Hawaiano</option><option value="iw">Hebreo</option><option value="hi">Hindi</option><option value="hmn">Hmong</option><option value="nl">Holandés</option><option value="hu">Húngaro</option><option value="ig">Igbo</option><option value="id">Indonesio</option><option value="en">Inglés</option><option value="ga">Irlandés</option><option value="is">Islandés</option><option value="it">Italiano</option><option value="ja">Japonés</option><option value="jw">Javanés</option><option value="kk">Kazajo</option><option value="ky">Kirguís</option><option value="ku">Kurdo</option><option value="lo">Lao</option><option value="la">Latín</option><option value="lv">Letón</option><option value="lt">Lituano</option><option value="lb">Luxemburgués</option><option value="mk">Macedonio</option><option value="ml">Malayalam</option><option value="ms">Malayo</option><option value="mg">Malgache</option><option value="mt">Maltés</option><option value="mi">Maorí</option><option value="mr">Maratí</option><option value="mn">Mongol</option><option value="ne">Nepalí</option><option value="no">Noruego</option><option value="pa">Panyabí</option><option value="ps">Pastún</option><option value="fa">Persa</option><option value="pl">Polaco</option><option value="pt">Portugués</option><option value="ro">Rumano</option><option value="ru">Ruso</option><option value="sm">Samoano</option><option value="sr">Serbio</option><option value="st">Sesoto</option><option value="sn">Shona</option><option value="sd">Sindhi</option><option value="so">Somalí</option><option value="sw">Suajili</option><option value="sv">Sueco</option><option value="su">Sundanés</option><option value="tl">Tagalo</option><option value="th">Tailandés</option><option value="ta">Tamil</option><option value="tg">Tayiko</option><option value="te">Telugu</option><option value="tr">Turco</option><option value="uk">Ucraniano</option><option value="ur">Urdu</option><option value="uz">Uzbeco</option><option value="vi">Vietnamita</option><option value="xh">Xhosa</option><option value="yi">Yidis</option><option value="yo">Yoruba</option><option value="zu">Zulú</option></select></td><td class="SL_td" width="3" align="center"><div id="SL_switch_b" title="Cambiar idiomas" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/switchb.png&quot;);"></div></td><td class="SL_td" width="20%" align="left"><select id="SL_lng_to" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/select.png&quot;) 100% 0px no-repeat rgb(255, 255, 255);"><option value="af">Afrikáans</option><option value="sq">Albanés</option><option value="de">Alemán</option><option value="am">Amhárico</option><option value="ar">Árabe</option><option value="hy">Armenio</option><option value="az">Azerí</option><option value="bn">Bengalí</option><option value="be">Bielorruso</option><option value="my">Birmano</option><option value="bs">Bosnio</option><option value="bg">Búlgaro</option><option value="km">Camboyano</option><option value="kn">Canarés</option><option value="ca">Catalán</option><option value="ceb">Cebuano</option><option value="cs">Checo</option><option value="ny">Chichewa</option><option value="zh-CN">Chino simp</option><option value="zh-TW">Chino trad</option><option value="si">Cincalés</option><option value="ko">Coreano</option><option value="co">Corso</option><option value="ht">Criollo haitiano</option><option value="hr">Croata</option><option value="da">Danés</option><option value="sk">Eslovaco</option><option value="sl">Esloveno</option><option selected="selected" value="es">Español</option><option value="eo">Esperanto</option><option value="et">Estonio</option><option value="eu">Euskera</option><option value="fi">Finlandés</option><option value="fr">Francés</option><option value="fy">Frisio</option><option value="gd">Gaélico escocés</option><option value="cy">Galés</option><option value="gl">Gallego</option><option value="ka">Georgiano</option><option value="el">Griego</option><option value="gu">Gujarati</option><option value="ha">Hausa</option><option value="haw">Hawaiano</option><option value="iw">Hebreo</option><option value="hi">Hindi</option><option value="hmn">Hmong</option><option value="nl">Holandés</option><option value="hu">Húngaro</option><option value="ig">Igbo</option><option value="id">Indonesio</option><option value="en">Inglés</option><option value="ga">Irlandés</option><option value="is">Islandés</option><option value="it">Italiano</option><option value="ja">Japonés</option><option value="jw">Javanés</option><option value="kk">Kazajo</option><option value="ky">Kirguís</option><option value="ku">Kurdo</option><option value="lo">Lao</option><option value="la">Latín</option><option value="lv">Letón</option><option value="lt">Lituano</option><option value="lb">Luxemburgués</option><option value="mk">Macedonio</option><option value="ml">Malayalam</option><option value="ms">Malayo</option><option value="mg">Malgache</option><option value="mt">Maltés</option><option value="mi">Maorí</option><option value="mr">Maratí</option><option value="mn">Mongol</option><option value="ne">Nepalí</option><option value="no">Noruego</option><option value="pa">Panyabí</option><option value="ps">Pastún</option><option value="fa">Persa</option><option value="pl">Polaco</option><option value="pt">Portugués</option><option value="ro">Rumano</option><option value="ru">Ruso</option><option value="sm">Samoano</option><option value="sr">Serbio</option><option value="st">Sesoto</option><option value="sn">Shona</option><option value="sd">Sindhi</option><option value="so">Somalí</option><option value="sw">Suajili</option><option value="sv">Sueco</option><option value="su">Sundanés</option><option value="tl">Tagalo</option><option value="th">Tailandés</option><option value="ta">Tamil</option><option value="tg">Tayiko</option><option value="te">Telugu</option><option value="tr">Turco</option><option value="uk">Ucraniano</option><option value="ur">Urdu</option><option value="uz">Uzbeco</option><option value="vi">Vietnamita</option><option value="xh">Xhosa</option><option value="yi">Yidis</option><option value="yo">Yoruba</option><option value="zu">Zulú</option></select></td><td class="SL_td" width="5%" align="center"> </td><td class="SL_td" width="8%" align="center"><div id="SL_TTS_voice" title="undefined" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/ttsvoice.png&quot;);"></div></td><td class="SL_td" width="8%" align="center"><div id="SL_copy" title="Copiar" class="SL_copy" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/copy.png&quot;);"></div></td><td class="SL_td" width="8%" align="center"><div id="SL_bbl_font_patch"></div><div id="SL_bbl_font" title="Тamaño de fuente" class="SL_bbl_font" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/font.png&quot;);"></div></td><td class="SL_td" width="8%" align="center"><div id="SL_bbl_help" title="Ayuda" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/bhelp.png&quot;);"></div></td><td class="SL_td" width="15%" align="right"><div id="SL_pin" class="SL_pin_off" title="Fijar la ventana de traducción" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/pin-on.png&quot;);"></div></td></tr></table></div></div><div id="SL_shadow_translation_result" style="visibility: visible;"></div><div id="SL_loading" class="SL_loading" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/loading.gif&quot;);"></div><div id="SL_player2"></div><div id="SL_alert100">La función de sonido está limitada a 200 caracteres</div><div id="SL_Balloon_options" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/bg3.png&quot;) rgb(255, 255, 255);"><div id="SL_arrow_down" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/down.png&quot;);"></div><table id="SL_tbl_opt" width="100%"><tr><td width="5%" align="center"><input id="SL_BBL_locer" type="checkbox" checked="1" title="Mostrar el botón ImTranslator 3 segundos"></td><td width="5%" align="left"><div id="SL_BBL_IMG" title="Mostrar el botón ImTranslator 3 segundos" style="background: url(&quot;chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/img/util/bbl-logo.png&quot;);"></div></td><td width="70%" align="center"><a href="chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/html/options/options.html?bbl" target="_blank" class="SL_options" title="Mostrar opciones">Opciones</a> : <a href="chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/html/options/options.html?hist" target="_blank" class="SL_options" title="Historial de traducciones">Historia</a> : <a href="chrome-extension://noaijdpnepcgjemiklgfkcfbkokogabh/content/html/options/options.html?feed" target="_blank" class="SL_options" title="ImTranslator Feedback">Feedback</a> : <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=GD9D8CPW8HFA2" target="_blank" class="SL_options" title="Hacer una contribución">Donate</a></td><td width="15%" align="right"><span id="SL_Balloon_Close" title="Cerrar">Cerrar</span></td></tr></table></div></div></div></body></html>
